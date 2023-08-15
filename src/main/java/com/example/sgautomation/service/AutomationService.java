@@ -22,8 +22,11 @@ public class AutomationService {
 
     try (Playwright playwright = Playwright.create()) {
 
-      Browser browser = playwright.firefox().launch(
-              new BrowserType.LaunchOptions().setHeadless(true));
+      Browser browser = playwright.chromium().launch(
+              new BrowserType.LaunchOptions()
+                      .setHeadless(true)
+                      .setSlowMo(1000)
+                      .setChannel("chrome"));
 
       Page page = browser.newPage();
       page.navigate("https://apprn.cloudsg.com.br/#!/login");
