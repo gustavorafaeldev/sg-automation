@@ -38,7 +38,7 @@ public class AutomationService {
 
       sleep(10000);
       page.navigate(urlProduct);
-      sleep(6000);
+      sleep(15000);
 
       ElementHandle divPrice = page.querySelectorAll(".mbg-input-money-wrapper").get(5);
       ElementHandle input = divPrice.querySelector("input");
