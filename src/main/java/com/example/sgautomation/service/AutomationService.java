@@ -22,7 +22,7 @@ public class AutomationService {
 
     try (Playwright playwright = Playwright.create()) {
 
-      Browser browser = playwright.webkit().launch(
+      Browser browser = playwright.firefox().launch(
               new BrowserType.LaunchOptions().setHeadless(true));
 
       Page page = browser.newPage();
