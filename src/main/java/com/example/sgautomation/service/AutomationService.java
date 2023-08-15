@@ -2,6 +2,7 @@ package com.example.sgautomation.service;
 
 import com.microsoft.playwright.*;
 import lombok.SneakyThrows;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -11,6 +12,7 @@ import java.util.Map;
 import static java.lang.Thread.sleep;
 
 @Service
+@Slf4j
 public class AutomationService {
 
   @SneakyThrows
@@ -25,11 +27,11 @@ public class AutomationService {
       Browser browser = playwright.chromium().launch(
               new BrowserType.LaunchOptions()
                       .setHeadless(true)
-                      .setSlowMo(1000)
-                      .setChannel("chrome"));
+                      .setSlowMo(1000));
 
       Page page = browser.newPage();
       page.navigate("https://apprn.cloudsg.com.br/#!/login");
+      log.info("navigate login");
       sleep(10000);
       ElementHandle email = page.querySelectorAll("input").get(5);
       ElementHandle senha = page.querySelectorAll("input").get(6);
@@ -40,6 +42,7 @@ public class AutomationService {
       entrar.click();
 
       sleep(10000);
+      log.info("navigate product");
       page.navigate(urlProduct);
       sleep(15000);
 
@@ -49,6 +52,7 @@ public class AutomationService {
 
       ElementHandle proximo = page.querySelectorAll("button").get(24);
       proximo.dispatchEvent("click");
+      log.info("proximo");
       sleep(1000);
 
 
