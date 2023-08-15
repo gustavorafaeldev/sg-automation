@@ -27,7 +27,7 @@ public class AutomationService {
 
       Page page = browser.newPage();
       page.navigate("https://apprn.cloudsg.com.br/#!/login");
-      page.waitForTimeout(4D);
+      sleep(10000);
       ElementHandle email = page.querySelectorAll("input").get(5);
       ElementHandle senha = page.querySelectorAll("input").get(6);
       ElementHandle entrar = page.querySelectorAll("button").get(3);
