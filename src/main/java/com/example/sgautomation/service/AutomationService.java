@@ -41,6 +41,7 @@ public class AutomationService {
       senha.fill("130843");
       entrar.click();
 
+
       sleep(10000);
       log.info("navigate product");
       page.navigate(urlProduct);
